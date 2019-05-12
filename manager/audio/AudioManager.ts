@@ -2,12 +2,12 @@
  * @Author: ougato
  * @LastEditors: ougato
  * @Date: 2019-05-01 22:02:14
- * @LastEditTime: 2019-05-03 23:08:14
+ * @LastEditTime: 2019-05-13 00:25:19
  */
 
 export class AudioManager {
     // 静态单例对象
-    private static instance: AudioManager;
+    private static s_objInstace: AudioManager;
 
     constructor() {
         this._initData();
@@ -18,19 +18,19 @@ export class AudioManager {
      * 获取单例
      */
     public static getInstance(): AudioManager {
-        if( this.instance === undefined ) {
-            this.instance = new AudioManager();
+        if( this.s_objInstace === undefined ) {
+            this.s_objInstace = new AudioManager();
         }
-        return this.instance;
+        return this.s_objInstace;
     }
 
     /**
      * 单例销毁
      */
     public static destroy(): void {
-        if( this.instance !== undefined ) {
-            this.instance._destroy();
-            this.instance = undefined;
+        if( this.s_objInstace !== undefined ) {
+            this.s_objInstace._destroy();
+            this.s_objInstace = undefined;
         }
     }
 
@@ -61,7 +61,7 @@ export class AudioManager {
      * @param volume {number} 音量 [0-1]
      * @param finishCF {Function} 完成后回调函数
      */
-    public play( path: number, volume: number, finishCF: Function ): number {
+    public playMusic( path: number, volume: number, finishCF: Function ): number {
 
     }
 
@@ -71,7 +71,7 @@ export class AudioManager {
      * @param volume {number} 音量 [0-1]
      * @param finishCF {Function} 完成后回调函数
      */
-    public play( path: string, volume: number, finishCF: Function ): number {
+    public playSound( path: string, volume: number, finishCF: Function ): number {
 
     }
 
